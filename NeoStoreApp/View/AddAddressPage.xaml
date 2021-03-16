@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeoStoreApp.View.AddAddressPage"
+             BackgroundColor="#ededed">
+    <NavigationPage.TitleView>
+        <StackLayout>
+            <Label Text="Add Address"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"
+                   FontSize="20"
+                   Margin="0, 0, 75, 0"  />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ScrollView>
+    <StackLayout>
+        <Label Text="ADDRESS"
+               TextColor="#333333"
+               FontSize="25"
+               FontAttributes="Bold"
+               Margin="10,20,0,0"/>
+        <StackLayout
+            BackgroundColor="White"
+            Margin="10,10,10,0">
+            <Editor Text="{Binding Address, Mode=TwoWay}"
+                    HeightRequest="150"
+                    Placeholder="Address">
+
+            </Editor>
+        </StackLayout>
+        <Label Text="LANDMARK"
+               TextColor="#333333"
+               FontSize="25"
+               FontAttributes="Bold"
+               Margin="10,20,0,0"/>
+        <StackLayout
+            BackgroundColor="White"
+            Margin="10,10,10,0">
+            <Editor
+                Placeholder="Landmark"
+                Text="{Binding LandMark ,Mode=TwoWay}"
+                >
+
+            </Editor>
+        </StackLayout>
+        <Grid>
+
+            <Label
+                Text="CITY"
+                TextColor="#333333"
+                FontSize="25"
+                FontAttributes="Bold"
+                Margin="10,0,0,0"/>
+            <Label
+                Text="STATE"
+                TextColor="#333333"
+                FontSize="25"
+                FontAttributes="Bold"
+                Grid.Column="1"/>
+
+            <Editor
+                Placeholder="City"
+                Text="{Binding City,Mode=TwoWay}"
+                Margin="10,5,10,0"
+                Grid.Row="1"
+                BackgroundColor="White" >
+
+            </Editor>
+            <Editor
+                Placeholder="State"
+                Text="{Binding State,Mode=TwoWay}"
+                BackgroundColor="White"
+                Margin="10,5,10,0"
+                Grid.Row="1"
+                Grid.Column="1">
+
+            </Editor>
+            
+            <Label
+                Text="ZIP CODE"
+                TextColor="#333333"
+                FontSize="25"
+                FontAttributes="Bold"
+                Margin="10,0,0,0"
+                Grid.Row="2"/>
+            <Label
+                Text="COUNTRY"
+                TextColor="#333333"
+                FontSize="25"
+                FontAttributes="Bold"
+                Grid.Column="1"
+                Grid.Row="2"/>
+         
+             <Editor
+                 Placeholder="Zip code"
+                 Text="{Binding ZipCode,Mode=TwoWay}"
+                 Keyboard="Numeric"
+                 BackgroundColor="White"
+                 Margin="10,5,10,0"
+                 Grid.Row="3">
+
+             </Editor>
+             <Editor
+                 Placeholder="Country"
+                 Text="{Binding Country,Mode=TwoWay}"
+                 BackgroundColor="White"
+                 Margin="10,5,10,0"
+                 Grid.Row="3"
+                 Grid.Column="1" >
+
+             </Editor>
+            
+        </Grid>
+        <Button
+            Text="Save Address"
+            Command="{Binding SaveData}"
+            CornerRadius="5"
+            BackgroundColor="#e91c1a"
+            TextColor="White"
+            FontAttributes="Bold"
+            VerticalOptions="CenterAndExpand"
+            Margin="10,0,10,10"/>
+    </StackLayout>
+        </ScrollView>
+</ContentPage>

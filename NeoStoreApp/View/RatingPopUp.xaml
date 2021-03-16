@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"  
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup" xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"  
+                 x:Class="NeoStoreApp.View.RatingPopUp">
+    <pages:PopupPage.Animation>  
+        <animations:ScaleAnimation  
+                      PositionIn="Center"  
+                      PositionOut="Center"  
+                      ScaleIn="0.5"  
+                      ScaleOut="0.5"  
+                      DurationIn="200"  
+                      DurationOut="200"  
+                     
+                      
+      HasBackgroundAnimation="True"/>  
+    </pages:PopupPage.Animation>  
+    
+  
+
+    <Frame BackgroundColor="White"
+           Margin="15,60,15,100"
+           CornerRadius="5">
+        <StackLayout>
+        <StackLayout>
+            
+                 
+                <Label
+                    Text="{Binding dataDetail.data.name}"
+                    TextColor="Black"
+                    FontSize="28"
+                    HorizontalOptions="Center"/>  
+                <Image x:Name="ProductImage"
+                      
+                       Margin="10,10,10,0"
+                       HorizontalOptions="Center"
+                       
+                      />
+            </StackLayout> 
+            <StackLayout  Margin="0,20,0,0">
+          
+             <rating:SfRating
+                 x:Name="rating"
+                 Value="{Binding RateValue, Mode=TwoWay}"
+                 HorizontalOptions="Center">
+            <rating:SfRating.RatingSettings>
+            <rating:SfRatingSettings
+                RatedFill="#ffba00"
+                UnRatedFill="#7f7f7f"
+                RatedStroke="#ffba00"
+                UnRatedStroke="#7f7f7f"/>
+            </rating:SfRating.RatingSettings>
+        </rating:SfRating>
+        <Button
+            Margin="0,20,0,0"
+            Text="RATE NOW"
+            Padding="10"
+            TextColor="White"
+            BackgroundColor="#e91b1a"
+            FontSize="22"
+            HorizontalOptions="Center"
+            HeightRequest="55"
+            WidthRequest="220"
+            CornerRadius="5"
+            Command="{Binding GiveRating}" />
+          </StackLayout>
+               
+ 
+        </StackLayout>
+        
+    </Frame>
+</pages:PopupPage>

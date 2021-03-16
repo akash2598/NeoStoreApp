@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:NeoStoreApp"
+             x:Class="NeoStoreApp.View.LoginPage"
+             NavigationPage.HasNavigationBar="False">
+  
+
+
+     <ContentPage.Content>
+         
+        <StackLayout BackgroundColor="#e91c1a">
+            <Label Text="NeoSTORE"
+               HorizontalOptions="Center"
+               TextColor="#fff"
+               FontSize="50"
+               FontAttributes="Bold"
+               Margin="0,50,0,10"/>
+           
+            <local:ImageEntry
+                ImageHeight="10"
+                ImageWidth="10"
+                Image="user"
+                Placeholder="Username"
+     
+                   BackgroundColor="Red"
+                   PlaceholderColor="White"
+                   FontSize="Medium"
+                   Margin="40,20,40,25"
+                   Keyboard="Text"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"
+                   Text="{Binding userName}"/>
+           
+          
+            <local:ImageEntry
+                ImageHeight="10"
+                ImageWidth="10"
+                Image="user"
+                Placeholder="Password"
+                   BackgroundColor="Red"
+                   PlaceholderColor="White"
+                   FontSize="Medium"
+                   Margin="40,10,40,25"
+                   IsPassword="True"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"
+                   Text="{Binding userPass}"/>
+            
+            <Button Text="LOGIN"
+                    BackgroundColor="White"
+                    TextColor="Red"
+                     Margin="40,10,40,10"
+                    FontSize="25"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    Command="{Binding userLogin}"/>
+            <Button Text="Forgot Password?"
+                    BackgroundColor="#e91c1a"
+                     Margin="40,0,40,10"
+                    FontSize="Body"
+                   
+                    />
+            <ActivityIndicator IsRunning="{Binding IsRun}"
+                               IsVisible="{Binding visible}"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Color="White"/>
+
+           <Grid >
+                <Grid.Margin>
+                    <OnPlatform x:TypeArguments="Thickness">
+                      <On Platform="iOS" Value="20,200,20,10"/>
+                      <On Platform="Android" Value="20,0,20,10"/>
+                     </OnPlatform>
+                </Grid.Margin>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+           
+
+            <Label Text="DONT HAVE AN ACCOUNT?"
+                    
+                    FontSize="Medium"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                    HorizontalOptions="Start"
+                    HeightRequest="75"/>
+
+            <Button Text="+"
+                    TextColor="Black"
+                    BackgroundColor="Red"
+                    FontSize="10"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HorizontalOptions="End"
+                    BorderColor="Green"
+                    BorderWidth="2"
+                    HeightRequest="85"
+                    WidthRequest="55"
+                    Command="{Binding OpenRegisterPage}"
+                   />
+
+</Grid>
+             
+        </StackLayout>
+
+            
+
+    </ContentPage.Content>
+
+
+
+</ContentPage>

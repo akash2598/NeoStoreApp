@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NeoStoreApp.View.AddressListPage"
+             x:Name="RequestsPage"
+             >
+    <NavigationPage.TitleView >
+        <StackLayout>
+            <Label
+                Text="Address List"
+                TextColor="White"
+                HorizontalTextAlignment="Center"
+                FontSize="20"
+                Margin="0, 0, 75, 0"  />
+        </StackLayout>
+    </NavigationPage.TitleView>
+   <ContentPage.ToolbarItems>
+    <ToolbarItem Text="+"
+                Command="{Binding AddNewAddress}"  />
+</ContentPage.ToolbarItems>
+    
+    <StackLayout BackgroundColor="White">
+        <Label
+            Text="Shipping Address"
+            FontSize="20"
+            Margin="10,10,0,0"/>
+        
+        <StackLayout >
+          
+            <StackLayout>
+           <ScrollView>
+            <ListView  x:Name="lst" 
+                       SeparatorVisibility="None"
+                       HasUnevenRows="true"
+                       SelectedItem="{Binding SelectedAddress}"
+                       ItemsSource="{Binding ItemSource, Mode=TwoWay}"
+                       IsPullToRefreshEnabled="True"
+                       IsRefreshing="{Binding IsRun}"
+          
+                      
+              >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Grid BackgroundColor="White">
+                                <RadioButton
+                                    GroupName="SelectAddres"
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="15,0,5,0" />
+                             <Frame BorderColor="Gray"
+                                   CornerRadius="5"
+                                   Padding="8"
+                                   Margin="50,15,20,15">
+                              <StackLayout>
+                                  <Grid>
+                                <Label Text="User Name"
+                                       FontSize="25"
+                                       FontAttributes="Bold" />
+                                <Button
+                                    Text="X"
+                                    BackgroundColor="White"
+                                    Command="{Binding Source={x:Reference RequestsPage}, Path=BindingContext.DeleteAddress}"
+                                    CornerRadius="50"
+                                    HeightRequest="40"
+                                    WidthRequest="40"
+                                    HorizontalOptions="End"/>
+                                      </Grid>
+                                <Label
+                                    Text="{Binding Address}"
+                                    FontSize="20"/>
+                              </StackLayout>
+                            </Frame>
+                                
+                                </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView> 
+            </ScrollView>
+        
+          
+            <Button
+                Margin="10,10,10,50"
+                Text="PLACE ORDER"
+                TextColor="White"
+                BackgroundColor="#e91b1a"
+                CornerRadius="5" />
+</StackLayout>
+            
+        </StackLayout> 
+        </StackLayout>
+</ContentPage>

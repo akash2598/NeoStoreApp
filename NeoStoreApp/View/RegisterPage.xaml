@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:NeoStoreApp"
+             x:Class="NeoStoreApp.View.RegisterPage"
+             >
+   
+       <NavigationPage.TitleView>
+        
+        <StackLayout>
+            
+                <Label Text="Register" TextColor="White" HorizontalTextAlignment="Center" FontSize="20" Margin="0, 0, 75, 0" />
+            </StackLayout>
+        </NavigationPage.TitleView>
+
+
+
+
+      <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#e91c1a">
+                 <ActivityIndicator IsRunning="{Binding isRun}"
+                         VerticalOptions="CenterAndExpand"
+                         Color="Black"/>
+
+                <Label
+                    Text="NeoSTORE"
+                   Margin="0,50,0,20"
+                   TextColor="White"
+                   FontSize="45"
+                   HorizontalOptions="Center"
+                   FontAttributes="bold"/>
+               
+                <local:ImageEntry
+                   ImageHeight="10"
+                   ImageWidth="10"
+                   Image="user"
+                   Placeholder="First Name"
+                   PlaceholderColor="white"
+                   TextColor="White"
+                   FontSize="Medium"
+                   Margin="30,10,30,5"
+                   Text="{Binding firstName}"
+                   />
+                
+                <local:ImageEntry
+                   ImageHeight="10"
+                   ImageWidth="10"
+                   Image="user"
+                   Placeholder="Last Name"
+                   PlaceholderColor="white"
+                   TextColor="White"
+                   FontSize="Medium"
+                    Margin="30,10,30,5"
+                    Text="{Binding lastName}"/>
+                <local:ImageEntry
+                   ImageHeight="10"
+                   ImageWidth="10"
+                   Image="user"
+                   Placeholder="Email"
+                   PlaceholderColor="white"
+                   TextColor="White"
+                   FontSize="Medium"
+                   Keyboard="Email"
+                   Margin="30,10,30,5"
+                   Text="{Binding email}"/>
+                <local:ImageEntry
+                   ImageHeight="10"
+                   ImageWidth="10"
+                   Image="user"
+                   Placeholder="Password"
+                   PlaceholderColor="white"
+                   TextColor="White"
+                   FontSize="Medium"
+                   IsPassword="True"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"
+                   Margin="30,10,30,5"
+                   Text="{Binding password}"
+                   />
+
+                <local:ImageEntry
+                   ImageHeight="10"
+                   ImageWidth="10"
+                   Image="user"
+                   Placeholder="Confirm Password"
+                   PlaceholderColor="white"
+                   TextColor="White"
+                   FontSize="Medium"
+                    IsPassword="True"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"
+                    Margin="30,10,30,5"
+                    Text="{Binding Cpassword}"/>
+
+                <Grid Margin=   "30,15,30,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Label Margin="15,10,0,5"
+                    Text="Gender"
+                       TextColor="White"
+                       FontSize="Medium"
+                       FontAttributes="Bold"/>
+                    <RadioButton
+                        Grid.Column="2" 
+                          
+                        TextColor="white" 
+                        IsChecked="{Binding Male}"
+                        Margin="-55,0,0,0"/>
+                    <Label
+                        Grid.Column="2"
+                       Text="Male"
+                       FontSize="Medium"
+                       TextColor="White"
+                       Margin="-20,8,0,0"
+                       
+                       />
+                    <RadioButton
+                        Grid.Column="3"
+                    
+                        TextColor="White"
+                        Margin="-50,0,0,0"
+                        IsChecked="{Binding Female}"
+                            />
+                    <Label
+                       Grid.Column="3"
+                       Text="Female"
+                       FontSize="Medium"
+                       TextColor="White"
+                       Margin="-15,8,0,0"
+               
+                       />
+                </Grid>
+                <local:ImageEntry
+                       ImageHeight="10"
+                       ImageWidth="10"
+                       Image="user"
+                       Placeholder="Phone Number"
+                       PlaceholderColor="White"
+                       FontSize="Medium"
+                       Keyboard="Numeric"
+                       Margin="30,0,30,10"
+                       Text="{Binding phoneNum}"/>
+
+                <Grid>
+                <CheckBox Color="White"
+
+                          IsChecked="{Binding chkBox}"
+                          >
+                    <CheckBox.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="45,0,0,0"/>
+                            <On Platform="Android" Value="45,0,0,0"/>
+                            </OnPlatform>
+                    </CheckBox.Margin>
+
+                    </CheckBox>
+ 
+
+                <Label 
+                    TextColor="white"
+                      
+                     FontSize="Medium">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="I agree the " />
+                            <Span Text="Terms and conditions"/>
+
+
+                        </FormattedString>
+                    </Label.FormattedText>
+
+                      <Label.Margin>
+                        <OnPlatform x:TypeArguments="Thickness">
+                          <On Platform="iOS" Value="80,10,0,0"/>
+                          <On Platform="Android" Value="80,3,0,0"/>
+                        </OnPlatform>
+                    </Label.Margin>
+
+                  
+
+
+                </Label>
+                </Grid>
+
+
+                <Button
+                    Text="REGISTER"
+                    BackgroundColor="White"
+                    TextColor="Red"
+                    Margin="30,20,30,20"
+                    FontSize="25"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    Padding="18"
+                    Command="{Binding userRegister}" />
+              
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+
+
+</ContentPage>
