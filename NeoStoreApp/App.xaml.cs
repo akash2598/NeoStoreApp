@@ -29,7 +29,7 @@ namespace NeoStoreApp
 
                      MainPage = new NavigationPage(new HomeScreenPage()
                      {
-                         Title="NeoStore"
+                         Title="NeoStoreApp"
 
                      });             
 
